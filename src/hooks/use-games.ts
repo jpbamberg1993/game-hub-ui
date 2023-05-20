@@ -1,4 +1,5 @@
 import { useData } from "./use-data"
+import { Genre } from "./use-genres"
 
 export interface Platform {
 	id: number
@@ -12,8 +13,18 @@ export interface Game {
 	background_image: string
 	parent_platforms: { platform: Platform }[]
 	metacritic: number
+	genres: Genre[]
 }
 
-export function useGames() {
-	return useData<Game>("/games")
+export function useGames(selectedGenre: Genre | null) {
+	let axiosRequest = {}
+	if (selectedGenre) {
+		axiosRequest = {
+			params: {
+				genres: selectedGenre?.id
+			}
+		}
+	}
+
+	return useData<Game>("/games", axiosRequest, [selectedGenre?.id])
 }
