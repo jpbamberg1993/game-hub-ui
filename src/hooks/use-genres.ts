@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react"
-import { apiClient, type ApiResponse } from "../services/api-client"
 import { CanceledError } from "axios"
+import { apiClient, ApiResponse } from "../services/api-client"
+import { useEffect, useState } from "react"
 
-export interface Platform {
+interface Genre {
 	id: number
 	name: string
-	slug: string
 }
 
-export interface Game {
-	id: number
-	name: string
-	background_image: string
-	parent_platforms: { platform: Platform }[]
-	metacritic: number
-}
-
-export function useGames() {
-	const [games, setGames] = useState<Game[]>([])
+export function useGenres() {
+	const [genres, setGenres] = useState<Genre[]>([])
 	const [error, setError] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -27,9 +18,9 @@ export function useGames() {
 
 		setIsLoading(true)
 		apiClient
-			.get<ApiResponse<Game>>('/games', {signal})
+			.get<ApiResponse<Genre>>('/genres', {signal})
 			.then(response => {
-				setGames(response.data.results)
+				setGenres(response.data.results)
 				setIsLoading(false)
 			})
 			.catch(error => {
@@ -44,5 +35,5 @@ export function useGames() {
 		}
 	}, [])
 
-	return {games, error, isLoading}
+	return {genres, error, isLoading}
 }
