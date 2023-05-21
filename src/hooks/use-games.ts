@@ -1,3 +1,4 @@
+import { Nullable } from "../types/utility-types"
 import { useData } from "./use-data"
 import { Genre } from "./use-genres"
 
@@ -16,15 +17,23 @@ export interface Game {
 	genres: Genre[]
 }
 
-export function useGames(selectedGenre: Genre | null) {
-	let axiosRequest = {}
+function addParameter(params: {}, key: string, value: any) {
+	const result = {
+		...params,
+		[key]: value
+	}
+	return result
+}
+
+export function useGames(selectedGenre: Nullable<Genre>, selectedPlatform: Nullable<Platform>) {
+	console.log({selectedGenre, selectedPlatform})
+	let axiosRequest = { params: {} }
 	if (selectedGenre) {
-		axiosRequest = {
-			params: {
-				genres: selectedGenre?.id
-			}
-		}
+		axiosRequest.params = addParameter(axiosRequest.params, "genres", selectedGenre?.id)
+	}
+	if (selectedPlatform) {
+		axiosRequest.params = addParameter(axiosRequest.params, "platforms", selectedPlatform?.id)
 	}
 
-	return useData<Game>("/games", axiosRequest, [selectedGenre?.id])
+	return useData<Game>("/games", axiosRequest, [selectedGenre?.id, selectedPlatform?.id])
 }
