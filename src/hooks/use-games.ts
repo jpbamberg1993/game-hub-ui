@@ -26,7 +26,6 @@ function addParameter(params: {}, key: string, value: any) {
 }
 
 export function useGames(selectedGenre: Nullable<Genre>, selectedPlatform: Nullable<Platform>) {
-	console.log({selectedGenre, selectedPlatform})
 	let axiosRequest = { params: {} }
 	if (selectedGenre) {
 		axiosRequest.params = addParameter(axiosRequest.params, "genres", selectedGenre?.id)

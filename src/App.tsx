@@ -1,4 +1,4 @@
-import { Grid, GridItem, Show, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Show, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { NavBar } from "./components/nav-bar";
 import { GameGrid } from "./components/game-grid"
@@ -32,14 +32,14 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <VStack padding="10px">
+        <Box marginBottom={2}>
           <PlatformSelector 
             selectedPlatform={selectedPlatform} 
             onPlatformSelect={setSelectedPlatform} />
-          <GameGrid 
-            selectedGenre={selectedGenre} 
-            selectedPlatform={selectedPlatform} />
-        </VStack>
+        </Box>
+        <GameGrid 
+          selectedGenre={selectedGenre} 
+          selectedPlatform={selectedPlatform} />
       </GridItem>
     </Grid>
   )
