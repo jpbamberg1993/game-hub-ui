@@ -8,7 +8,7 @@ interface Props {
 	selectedGenre: Nullable<Genre>
 }
 
-export function GenreList({ selectedGenre, onGenreSelect }: Props) {
+export function GenreList({selectedGenre, onGenreSelect}: Props) {
 	const {data, isLoading, error} = useGenres()
 
 	if (error) return null
@@ -21,20 +21,20 @@ export function GenreList({ selectedGenre, onGenreSelect }: Props) {
 				const isSelected = selectedGenre?.id === genre.id
 
 				return (
-					<ListItem 
-						key={genre.id} 
+					<ListItem
+						key={genre.id}
 						paddingY="5px">
 						<HStack>
-							<Image 
-								src={getCroppedImageUrl(genre.image_background)} 
-								alt={genre.name} 
-								boxSize='32px' 
+							<Image
+								src={getCroppedImageUrl(genre.image_background)}
+								alt={genre.name}
+								boxSize="32px"
 								borderRadius={8} />
-							<Button 
-								onClick={() => onGenreSelect(genre)} 
-								fontWeight={isSelected ? 'bold' : 'normal'} 
-								fontSize='lg' 
-								variant='link'>
+							<Button
+								onClick={() => onGenreSelect(genre)}
+								fontWeight={isSelected ? 'bold' : 'normal'}
+								fontSize="lg"
+								variant="link">
 								{genre.name}
 							</Button>
 						</HStack>

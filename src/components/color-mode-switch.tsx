@@ -1,7 +1,7 @@
-import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
+import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react"
 
 export function ColorModeSwitch() {
-	const { colorMode, toggleColorMode } = useColorMode();
+	const {colorMode, toggleColorMode} = useColorMode()
 
 	return (
 		<HStack>

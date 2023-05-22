@@ -4,7 +4,7 @@ import { SiNintendo } from "react-icons/si"
 import { BsGlobe } from "react-icons/bs"
 import { Platform } from "../hooks/use-games"
 import { IconType } from "react-icons"
-import { Badge, Box, BoxProps, HStack, Icon } from "@chakra-ui/react"
+import { Box, BoxProps, HStack, Icon } from "@chakra-ui/react"
 
 interface Props {
 	platforms: Platform[]
@@ -39,7 +39,7 @@ export function PlatformIconList({platforms}: Props) {
 		<HStack marginY={1}>
 			{platforms.map(platform => {
 				const IconComponent = iconMap.get(platform.slug)
-				return IconComponent ? <IconWrapper icon={IconComponent} key={platform.id} color='gray.500' /> : null
+				return IconComponent ? <IconWrapper icon={IconComponent} key={platform.id} color="gray.500" /> : null
 			})}
 		</HStack>
 	)

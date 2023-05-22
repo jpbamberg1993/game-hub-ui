@@ -1,6 +1,6 @@
 import { useData } from "./use-data"
 import { Genre } from "./use-genres"
-import { GameQuery } from '../App';
+import { GameQuery } from '../App'
 
 export interface Platform {
 	id: number
@@ -18,12 +18,12 @@ export interface Game {
 }
 
 export function useGames(gameQuery: GameQuery) {
-	let axiosRequest = { 
+	let axiosRequest = {
 		params: {
 			genre: gameQuery.genre?.id,
 			platform: gameQuery.platform?.id,
 		}
- 	}
+	}
 
 	return useData<Game>("/games", axiosRequest, [gameQuery])
 }
