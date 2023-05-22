@@ -7,11 +7,12 @@ import { Genre } from "./hooks/use-genres"
 import { PlatformSelector } from "./components/platform-selector"
 import { Platform } from "./hooks/use-games"
 import { Nullable } from "./types/utility-types"
-import { SortSelector } from "./components/sort-selector"
+import { SortOption, SortSelector } from "./components/sort-selector"
 
 export interface GameQuery {
 	genre: Nullable<Genre>
 	platform: Nullable<Platform>
+	ordering: Nullable<SortOption>
 }
 
 function App() {
@@ -45,7 +46,9 @@ function App() {
 							selectedPlatform={gameQuery.platform}
 							onPlatformSelect={platform => setGameQuery({...gameQuery, platform})} />
 					</Box>
-					<SortSelector />
+					<SortSelector
+						selectedSortValue={gameQuery.ordering}
+						onSortSelect={ordering => setGameQuery({...gameQuery, ordering})} />
 				</Flex>
 				<GameGrid gameQuery={gameQuery} />
 			</GridItem>

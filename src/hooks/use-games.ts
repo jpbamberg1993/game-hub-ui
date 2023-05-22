@@ -22,6 +22,7 @@ export function useGames(gameQuery: GameQuery) {
 		params: {
 			genre: gameQuery.genre?.id,
 			platform: gameQuery.platform?.id,
+			ordering: gameQuery.ordering?.value,
 		}
 	}
 

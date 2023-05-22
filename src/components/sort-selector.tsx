@@ -1,28 +1,47 @@
 import { BsChevronDown } from "react-icons/bs"
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
+import { Nullable } from "../types/utility-types"
 
-type SortOption = {
+export enum SortValue {
+	Relevance = "",
+	DateAdded = "-added",
+	Name = "name",
+	ReleaseDate = "-released",
+	Popularity = "-metacritic",
+	AverageRating = "-rating",
+}
+
+export type SortOption = {
 	label: string
-	value: string
+	value: SortValue
 }
 
 interface Props {
-	selectedSortOption: SortOption
+	selectedSortValue: Nullable<SortOption>
+	onSortSelect: (sortValue: Nullable<SortOption>) => void
 }
 
-export function SortSelector() {
+export function SortSelector({ selectedSortValue, onSortSelect }: Props) {
+	const options: SortOption[] = [
+		{ label: "Relevance", value: SortValue.Relevance },
+		{ label: "Date added", value: SortValue.DateAdded },
+		{ label: "Name", value: SortValue.Name },
+		{ label: "Release date", value: SortValue.ReleaseDate },
+		{ label: "Popularity", value: SortValue.Popularity },
+		{ label: "Average rating", value: SortValue.AverageRating },
+	]
+
 	return (
 		<Menu>
 			<MenuButton as={Button} rightIcon={<BsChevronDown />}>
-				Sort
+				Order by: {selectedSortValue?.label || "Relevance"}
 			</MenuButton>
 			<MenuList>
-				<MenuItem>Relevance</MenuItem>
-				<MenuItem>Date added</MenuItem>
-				<MenuItem>Name</MenuItem>
-				<MenuItem>Release date</MenuItem>
-				<MenuItem>Popularity</MenuItem>
-				<MenuItem>Average rating</MenuItem>
+				{options.map(option => (
+					<MenuItem key={option.value} onClick={() => onSortSelect(option)}>
+						{option.label}
+					</MenuItem>
+				))}
 			</MenuList>
 		</Menu>
 	)
