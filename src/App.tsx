@@ -37,7 +37,7 @@ function App() {
 						onGenreSelect={genre => setGameQuery({...gameQuery, genre})} />
 				</GridItem>
 			</Show>
-			<GridItem area="main">
+			<GridItem area="main" paddingX="10px">
 				<Box marginBottom={2}>
 					<PlatformSelector
 						selectedPlatform={gameQuery.platform}
