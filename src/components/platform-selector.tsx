@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { Button, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { usePlatforms } from "../hooks/use-platforms";
@@ -12,16 +11,6 @@ interface Props {
 
 export function PlatformSelector({ onPlatformSelect, selectedPlatform }: Props) {
   const {data, error} = usePlatforms()
-
-  function handlePlatformSelect(event: MouseEventHandler) {
-    const value = parseInt(event.target.value)
-    if (value) {
-      const platform = data.find(p => p.id === value)
-      onPlatformSelect(platform!)
-    } else {
-      onPlatformSelect(null)
-    }
-  }
 
   if (error) return null
 
