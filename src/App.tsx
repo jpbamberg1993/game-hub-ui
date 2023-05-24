@@ -7,7 +7,7 @@ import { Genre } from "./hooks/use-genres"
 import { PlatformSelector } from "./components/platform-selector"
 import { Platform } from "./hooks/use-games"
 import { Nullable } from "./types/utility-types"
-import { SortOption, SortSelector } from "./components/sort-selector"
+import { SortSelector, SortOption } from "./components/sort-selector"
 
 export interface GameQuery {
 	genre: Nullable<Genre>
