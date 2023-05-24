@@ -8,6 +8,7 @@ import { PlatformSelector } from "./components/platform-selector"
 import { Platform } from "./hooks/use-games"
 import { Nullable } from "./types/utility-types"
 import { SortSelector, SortOption } from "./components/sort-selector"
+import { GameHeading } from "./components/game-heading"
 
 export interface GameQuery {
 	genre: Nullable<Genre>
@@ -41,6 +42,9 @@ function App() {
 				</GridItem>
 			</Show>
 			<GridItem area="main" paddingX="10px">
+				<Box marginBottom={5} marginTop={2}>
+					<GameHeading gameQuery={gameQuery} />
+				</Box>
 				<Flex marginBottom={5}>
 					<Box marginRight={2}>
 						<PlatformSelector
