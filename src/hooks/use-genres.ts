@@ -1,4 +1,4 @@
-import { useData } from "./use-data"
+import { genres } from "../data/genres"
 
 export interface Genre {
 	id: number
@@ -7,5 +7,9 @@ export interface Genre {
 }
 
 export function useGenres() {
-	return useData<Genre>("/genres")
+	return {
+		data: genres,
+		isLoading: false,
+		error: null,
+	}
 }
