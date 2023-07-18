@@ -1,13 +1,14 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import { Nullable } from "../types/utility-types"
 
 interface Props {
 	onSearch: (searchText: string) => void
 }
 
 export function SearchInput({ onSearch }: Props) {
-	const ref = useRef<HTMLInputElement>(null)
+	const ref = useRef<Nullable<HTMLInputElement>>(null)
 
   return (
 		<form onSubmit={(event) => {

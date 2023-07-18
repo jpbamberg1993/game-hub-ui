@@ -18,7 +18,7 @@ export function useData<T>(endpoint: string, requestConfig: AxiosRequestConfig =
 
 		setIsLoading(true)
 		apiClient
-			.get<FetchResponse<T>>(endpoint, {signal, ...requestConfig})
+			.get<FetchResponse<T>>(endpoint, {signal, ...requestConfig} as AxiosRequestConfig)
 			.then(response => {
 				setData(response.data.results)
 				setIsLoading(false)
