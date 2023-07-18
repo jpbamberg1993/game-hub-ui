@@ -36,9 +36,9 @@ function App() {
 			</GridItem>
 			<Show above="lg">
 				<GridItem area="aside" paddingX={5}>
-					<GenreList
+					{/* <GenreList
 						selectedGenre={gameQuery.genre}
-						onGenreSelect={genre => setGameQuery({...gameQuery, genre})} />
+						onGenreSelect={genre => setGameQuery({...gameQuery, genre})} /> */}
 				</GridItem>
 			</Show>
 			<GridItem area="main" paddingX="10px">
@@ -47,13 +47,13 @@ function App() {
 				</Box>
 				<Flex marginBottom={5}>
 					<Box marginRight={2}>
-						<PlatformSelector
+						{/* <PlatformSelector
 							selectedPlatform={gameQuery.platform}
-							onPlatformSelect={platform => setGameQuery({...gameQuery, platform})} />
+							onPlatformSelect={platform => setGameQuery({...gameQuery, platform})} /> */}
 					</Box>
-					<SortSelector
+					{/* <SortSelector
 						selectedSortValue={gameQuery.ordering}
-						onSortSelect={ordering => setGameQuery({...gameQuery, ordering})} />
+						onSortSelect={ordering => setGameQuery({...gameQuery, ordering})} /> */}
 				</Flex>
 				<GameGrid gameQuery={gameQuery} />
 			</GridItem>
