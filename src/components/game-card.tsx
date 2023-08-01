@@ -14,14 +14,14 @@ export function GameCard({game}: Props) {
 	return (
 		<GameCardContainer>
 			<Card marginBottom={1}>
-				<Image src={getCroppedImageUrl(game.backgroundImage)} alt={game.name} />
+				<Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
 				<CardBody>
 					<HStack justifyContent="space-between" marginBottom={3}>
-						<PlatformIconList platforms={game.platforms.map(p => p.platform)} />
+						<PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />
 						<CriticScore score={game.metacritic} />
 					</HStack>
 					<Heading fontSize="2xl">{game.name}</Heading>
-					<Emoji rating={game.ratingTop} />
+					<Emoji rating={game.rating_top} />
 				</CardBody>
 			</Card>
 		</GameCardContainer>

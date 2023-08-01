@@ -11,11 +11,11 @@ export interface Platform {
 export interface Game {
 	id: number
 	name: string
-	backgroundImage: string
-	platforms: { platform: Platform }[]
+	background_image: string
+	parent_platforms: { platform: Platform }[]
 	metacritic: number
 	genres: Genre[]
-	ratingTop: number
+	rating_top: number
 }
 
 export function useGames(gameQuery: GameQuery) {
