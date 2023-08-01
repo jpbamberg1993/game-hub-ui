@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function SearchInput({ onSearch }: Props) {
-	const ref = useRef<Nullable<HTMLInputElement>>(null)
+	const ref = useRef<HTMLInputElement | null>(null)
 
   return (
 		<form onSubmit={(event) => {
