@@ -21,7 +21,7 @@ export function GenreList({selectedGenre, onGenreSelect}: Props) {
 				Genres
 			</Heading>
 			<List>
-				{data.map(genre => {
+				{data?.results.map(genre => {
 					const isSelected = selectedGenre?.id === genre.id
 
 					return (
