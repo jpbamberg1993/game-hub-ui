@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { AxiosRequestConfig } from "axios"
 
 export interface FetchResponse<T> {
 	count: number
@@ -12,3 +12,14 @@ export const apiClient = axios.create({
 		key: import.meta.env.VITE_RAWG_API_KEY,
 	}
 })
+
+export class ApiClient<T> {
+	constructor(private readonly endpoint: string) {
+	}
+
+	get = async (queryParams: AxiosRequestConfig = {}) => {
+		const response = await apiClient
+			.get<FetchResponse<T>>(this.endpoint, {...queryParams})
+		return response.data
+	}
+}
