@@ -1,7 +1,7 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { BsChevronDown } from "react-icons/bs"
 import { usePlatforms } from "../hooks/use-platforms"
-import { Platform } from "../hooks/use-games"
+import { Platform } from "../hooks/use-platforms"
 import { Nullable } from "../types/utility-types"
 
 interface Props {
