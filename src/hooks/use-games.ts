@@ -1,6 +1,7 @@
-import { useData } from "./use-data"
 import { Genre } from "./use-genres"
 import { GameQuery } from '../App'
+import { useQuery } from "@tanstack/react-query"
+import { apiClient,FetchResponse } from "../services/api-client"
 
 export interface Platform {
 	id: number
@@ -19,14 +20,19 @@ export interface Game {
 }
 
 export function useGames(gameQuery: GameQuery) {
-	let axiosRequest = {
-		params: {
-			genre: gameQuery.genre?.id,
-			platform: gameQuery.platform?.id,
-			ordering: gameQuery.ordering?.value,
-			search: gameQuery.searchText,
-		}
-	}
-
-	return useData<Game>("/games", axiosRequest, [gameQuery])
+	return useQuery<FetchResponse<Game>, Error>({
+		queryKey: ["games", gameQuery],
+		queryFn: async () => {
+			let res = await apiClient
+				.get<FetchResponse<Game>>("/games", {
+					params: {
+						genres: gameQuery.genre?.id,
+						parent_platforms: gameQuery.platform?.id,
+						ordering: gameQuery.ordering?.value,
+						search: gameQuery.searchText,
+					}
+				})
+			return res.data
+		},
+	})
 }

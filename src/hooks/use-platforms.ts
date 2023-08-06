@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { Platform } from "./use-games"
-import { FetchResponse } from "./use-data"
-import { apiClient } from "../services/api-client"
+import { apiClient, FetchResponse } from "../services/api-client"
 
 export function usePlatforms() {
 	return useQuery({
