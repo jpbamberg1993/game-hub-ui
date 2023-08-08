@@ -1,8 +1,8 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { BsChevronDown } from "react-icons/bs"
 import { usePlatforms } from "../hooks/use-platforms"
-import { Platform } from "../hooks/use-platforms"
 import { Nullable } from "../types/utility-types"
+import { Platform } from "../services/platforms-service"
 
 interface Props {
 	onPlatformSelect: (platform: Nullable<Platform>) => void

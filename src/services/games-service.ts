@@ -1,6 +1,6 @@
-import { Platform } from "../hooks/use-platforms"
-import { Genre } from "../hooks/use-genres"
 import { ApiClient } from "./api-client"
+import { Genre } from "./genres-service"
+import { Platform } from "./platforms-service"
 
 export interface Game {
 	id: number

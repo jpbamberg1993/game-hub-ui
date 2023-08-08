@@ -2,9 +2,9 @@ import { FaAndroid, FaApple, FaLinux, FaPlaystation, FaWindows, FaXbox } from "r
 import { MdPhoneIphone } from "react-icons/md"
 import { SiNintendo } from "react-icons/si"
 import { BsGlobe } from "react-icons/bs"
-import { Platform } from "../hooks/use-platforms"
 import { IconType } from "react-icons"
 import { Box, BoxProps, HStack, Icon } from "@chakra-ui/react"
+import { Platform } from "../services/platforms-service"
 
 interface Props {
 	platforms: Platform[]

@@ -7,7 +7,7 @@ export function useGames(gameQuery: GameQuery) {
 	return useQuery<FetchResponse<Game>, Error>({
 		queryKey: ["games", gameQuery],
 		queryFn: async () => {
-			return await gamesApiClient.get({
+			return await gamesApiClient.getAll({
 				params: {
 					genres: gameQuery.genre?.id,
 					parent_platforms: gameQuery.platform?.id,

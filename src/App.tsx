@@ -3,12 +3,12 @@ import { useState } from "react"
 import { NavBar } from "./components/nav-bar"
 import { GameGrid } from "./components/game-grid"
 import { GenreList } from "./components/genre-list"
-import { Genre } from "./hooks/use-genres"
 import { PlatformSelector } from "./components/platform-selector"
-import { Platform } from "./hooks/use-platforms"
 import { Nullable } from "./types/utility-types"
 import { SortSelector, SortOption } from "./components/sort-selector"
 import { GameHeading } from "./components/game-heading"
+import { Genre } from "./services/genres-service"
+import { Platform } from "./services/platforms-service"
 
 export interface GameQuery {
 	genre: Nullable<Genre>
