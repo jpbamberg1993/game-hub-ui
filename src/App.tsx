@@ -15,6 +15,7 @@ export interface GameQuery {
 	platform: Nullable<Platform>
 	ordering: Nullable<SortOption>
 	searchText: string
+	pageParam?: number
 }
 
 function App() {
