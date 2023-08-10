@@ -31,5 +31,6 @@ export function useGames(gameQuery: GameQuery) {
 		queryFn: getAllGames,
 		keepPreviousData: true,
 		getNextPageParam,
+		staleTime: 24 * 60 * 60 * 1000,
 	})
 }
