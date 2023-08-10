@@ -2,6 +2,7 @@ import { GameQuery } from '../App'
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Game, gamesApiClient } from "../services/games-service"
 import { FetchResponse } from "../services/api-client"
+import ms from "ms"
 
 export function useGames(gameQuery: GameQuery) {
 	async function getAllGames({pageParam = 1}): Promise<FetchResponse<Game>> {
@@ -31,6 +32,6 @@ export function useGames(gameQuery: GameQuery) {
 		queryFn: getAllGames,
 		keepPreviousData: true,
 		getNextPageParam,
-		staleTime: 24 * 60 * 60 * 1000,
+		staleTime: ms("24h"),
 	})
 }
