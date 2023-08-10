@@ -7,8 +7,8 @@ export function useGames(gameQuery: GameQuery) {
 	async function getAllGames({pageParam = 1}): Promise<FetchResponse<Game>> {
 		return await gamesApiClient.getAll({
 			params: {
-				genres: gameQuery.genre?.id,
-				parent_platforms: gameQuery.platform?.id,
+				genres: gameQuery.genreId,
+				parent_platforms: gameQuery.platformId,
 				ordering: gameQuery.ordering?.value,
 				search: gameQuery.searchText,
 				page: pageParam,

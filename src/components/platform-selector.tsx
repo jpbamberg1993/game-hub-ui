@@ -6,11 +6,12 @@ import { Platform } from "../services/platforms-service"
 
 interface Props {
 	onPlatformSelect: (platform: Nullable<Platform>) => void
-	selectedPlatform: Nullable<Platform>
+	selectedPlatformId?: number
 }
 
-export function PlatformSelector({onPlatformSelect, selectedPlatform}: Props) {
+export function PlatformSelector({onPlatformSelect, selectedPlatformId}: Props) {
 	const {data, error} = usePlatforms()
+	const selectedPlatform = data?.results.find(platform => platform.id === selectedPlatformId)
 
 	if (error) return null
 

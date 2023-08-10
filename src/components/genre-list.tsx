@@ -6,10 +6,10 @@ import { Genre } from "../services/genres-service"
 
 interface Props {
 	onGenreSelect: (genre: Genre) => void
-	selectedGenre: Nullable<Genre>
+	selectedGenreId?: number
 }
 
-export function GenreList({selectedGenre, onGenreSelect}: Props) {
+export function GenreList({selectedGenreId, onGenreSelect}: Props) {
 	const {data, isLoading, error} = useGenres()
 
 	if (error) return null
@@ -23,7 +23,7 @@ export function GenreList({selectedGenre, onGenreSelect}: Props) {
 			</Heading>
 			<List>
 				{data?.results.map(genre => {
-					const isSelected = selectedGenre?.id === genre.id
+					const isSelected = selectedGenreId === genre.id
 
 					return (
 						<ListItem
