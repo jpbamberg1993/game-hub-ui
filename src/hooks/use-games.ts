@@ -1,16 +1,18 @@
-import { GameQuery } from '../App'
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Game, gamesApiClient } from "../services/games-service"
 import { FetchResponse } from "../services/api-client"
 import ms from "ms"
+import { useGameStore } from "../stores/game-store"
 
-export function useGames(gameQuery: GameQuery) {
+export function useGames() {
+	const gameQuery = useGameStore(s => s.gameQuery)
+
 	async function getAllGames({pageParam = 1}): Promise<FetchResponse<Game>> {
 		return await gamesApiClient.getAll({
 			params: {
 				genres: gameQuery.genreId,
 				parent_platforms: gameQuery.platformId,
-				ordering: gameQuery.ordering?.value,
+				ordering: gameQuery.ordering,
 				search: gameQuery.searchText,
 				page: pageParam,
 			}
