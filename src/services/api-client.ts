@@ -23,4 +23,10 @@ export class ApiClient<T> {
 			.get<FetchResponse<T>>(this.endpoint, {...queryParams})
 		return response.data
 	}
+
+	getBySlug = async (id: number | string) => {
+		const response = await apiClient
+			.get<T>(`${this.endpoint}/${id}`)
+		return response.data
+	}
 }
