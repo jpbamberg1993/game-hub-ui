@@ -20,4 +20,14 @@ export interface Game {
 	publishers: Publisher[]
 }
 
+export interface Trailer {
+	id: number
+	name: string
+	preview: string
+	data: {
+		480: string
+		max: string
+	}
+}
+
 export const gamesApiClient = new ApiClient<Game>("/games")
