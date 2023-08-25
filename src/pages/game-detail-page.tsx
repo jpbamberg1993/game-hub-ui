@@ -23,7 +23,7 @@ export function GameDetailPage() {
 			<GridItem>
 				<Heading>{game.name}</Heading>
 				<ExpandableText>
-					{game.description_raw}
+					{game.descriptionRaw}
 				</ExpandableText>
 				<GameAttributes game={game} />
 			</GridItem>
