@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
 
 export interface FetchResponse<T> {
 	count: number
-	lastKeyId?: string | null
+	lastKeyId?: string
 	results: T[]
 }
 
@@ -14,7 +14,7 @@ const rawgApiClient = axios.create({
 })
 
 export const gameHubApiClient = axios.create({
-	baseURL: "http://localhost:3000",
+	baseURL: import.meta.env.VITE_GAME_HUB_API_URL,
 })
 
 export class ApiClient<T> {
