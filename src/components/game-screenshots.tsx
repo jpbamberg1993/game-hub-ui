@@ -2,11 +2,11 @@ import { useScreenshots } from "../hooks/use-screenshots"
 import { Image, SimpleGrid } from "@chakra-ui/react"
 
 interface Props {
-	gameId: number
+	gameSourceId: number
 }
 
-export function GameScreenshots({gameId}: Props) {
-	const {data: screenshots, error, isLoading} = useScreenshots(gameId)
+export function GameScreenshots({gameSourceId}: Props) {
+	const {data: screenshots, error, isLoading} = useScreenshots(gameSourceId)
 
 	if (error) throw error
 

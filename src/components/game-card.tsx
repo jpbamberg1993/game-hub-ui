@@ -13,7 +13,7 @@ interface Props {
 
 export function GameCard({game}: Props) {
 	return (
-		<NavLink to={`/games/${game.slug}`}>
+		<NavLink to={`/games/${game.id}`}>
 			<GameCardContainer>
 				<Image src={getCroppedImageUrl(game.backgroundImage)} alt={game.name} />
 				<CardBody>

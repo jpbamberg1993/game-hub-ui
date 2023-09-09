@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
 				element: <GamesGridPage />,
 			},
 			{
-				path: 'games/:slug',
+				path: 'games/:id',
 				element: <GameDetailPage />,
 			},
 		],

@@ -1,5 +1,4 @@
 import { ApiClient, gameHubApiClient } from "./api-client"
-import { gamesApiClient } from "./games-service"
 
 export interface Platform {
 	id: number

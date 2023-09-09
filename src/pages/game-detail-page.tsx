@@ -7,8 +7,8 @@ import { GameTrailer } from "../components/game-trailer"
 import { GameScreenshots } from "../components/game-screenshots"
 
 export function GameDetailPage() {
-	const {slug} = useParams()
-	const {data: game, isLoading, error} = useGame(slug!)
+	const {id} = useParams()
+	const {data: game, isLoading, error} = useGame(id!)
 
 	if (isLoading) {
 		return <Spinner />
@@ -28,8 +28,8 @@ export function GameDetailPage() {
 				<GameAttributes game={game} />
 			</GridItem>
 			<GridItem>
-				<GameTrailer gameId={game.id} />
-				<GameScreenshots gameId={game.id} />
+				<GameTrailer gameSourceId={game.sourceId} />
+				<GameScreenshots gameSourceId={game.sourceId} />
 			</GridItem>
 		</SimpleGrid>
 	)
