@@ -8,7 +8,8 @@ interface Publisher {
 }
 
 export interface Game {
-	id: number
+	id: string
+	sourceId: number
 	slug: string
 	name: string
 	descriptionRaw: string

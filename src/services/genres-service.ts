@@ -1,4 +1,4 @@
-import { ApiClient } from "./api-client"
+import { ApiClient, gameHubApiClient } from "./api-client"
 
 export interface Genre {
 	id: number
@@ -6,4 +6,4 @@ export interface Genre {
 	image_background: string
 }
 
-export const genresApiClient = new ApiClient<Genre>("/genres")
+export const genresApiClient = new ApiClient<Genre>("/genres", gameHubApiClient)
