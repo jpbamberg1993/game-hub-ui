@@ -14,7 +14,7 @@ export interface Game {
 	name: string
 	descriptionRaw: string
 	backgroundImage: string
-	platforms: { platform: Platform }[]
+	platforms: Platform[]
 	metacritic: number
 	genres: Genre[]
 	ratingTop: number

@@ -18,7 +18,7 @@ export function GameCard({game}: Props) {
 				<Image src={getCroppedImageUrl(game.backgroundImage)} alt={game.name} />
 				<CardBody>
 					<HStack justifyContent="space-between" marginBottom={3}>
-						<PlatformIconList platforms={game.platforms.map(p => p.platform)} />
+						<PlatformIconList platforms={game.platforms} />
 						<CriticScore score={game.metacritic} />
 					</HStack>
 					<Heading fontSize="2xl">{game.name}</Heading>
