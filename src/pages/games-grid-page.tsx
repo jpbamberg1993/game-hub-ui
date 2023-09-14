@@ -4,6 +4,7 @@ import { GameHeading } from "../components/game-heading"
 import { PlatformSelector } from "../components/platform-selector"
 import { SortSelector } from "../components/sort-selector"
 import { GameGrid } from "../components/game-grid"
+import { GenreSelector } from "../components/genre-selector"
 
 export function GamesGridPage() {
 	return (
@@ -27,6 +28,11 @@ export function GamesGridPage() {
 					<Box marginBottom={5} marginTop={2}>
 						<GameHeading />
 					</Box>
+					<Show below="lg">
+						<Box marginBottom={5} marginTop={2}>
+							<GenreSelector />
+						</Box>
+					</Show>
 					<Flex marginBottom={5}>
 						<Box marginRight={2}>
 							<PlatformSelector />
